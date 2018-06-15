@@ -9,7 +9,8 @@ url = 'http://www.heibanke.com/lesson/crawler_ex00/'
 number = ['']  # 用于储存读到的数字
 
 while True:
-    content = urllib.request.urlopen(url + number[0])  # number为字符串，number[0]为数字
+    content = urllib.request.urlopen(
+        url + number[0])  # number为字符串，number[0]为数字
     bs_obj = BeautifulSoup(content, "html.parser")  # html.parser表示解析网站，不返回任何值
     number = bs_obj.h3.string  # 网页显示出的“你需要在网址后输入数字44513”在html的h3 tag中，number在这里读出了h3里面的内容
     number = re.findall(r'\d+', number)  # 读出了number里面的数字
