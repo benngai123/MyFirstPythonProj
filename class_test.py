@@ -11,15 +11,27 @@
 
 
 class Player:
-    def __init__(self, name, hp):
-        self.name = name
-        self.hp = hp
+    def __init__(self, name, hp, occu):
+        self.__name = name  # 属性
+        self.hp = hp  # 属性
+        self.occu = occu
 
     def print_role(self):
-        print('%s: %s' % (self.name, self.hp))
+        print('%s: %s' % (self.__name, self.hp))
+
+    def updateName(self, new_name):
+        self.name = new_name
 
 
-user1 = Player('tom', 100)
-user2 = Player('jerry', 90)
+
+class Monster:
+    pass
+
+
+user1 = Player('tom', 100, 'master')
+user2 = Player('jerry', 90, 'master')
 user1.print_role()
 user2.print_role()
+
+user1.updateName('wilson')
+user1.print_role()
