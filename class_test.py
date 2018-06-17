@@ -23,15 +23,44 @@ class Player:
         self.name = new_name
 
 
+# user1 = Player('tom', 100, 'master')
+# user2 = Player('jerry', 90, 'master')
+# user1.print_role()
+# user2.print_role()
+#
+# user1.updateName('wilson')
+# user1.print_role()
 
 class Monster:
-    pass
+    def __init__(self, hp=100):
+        self.hp = hp
+
+    def run(self):
+        print('移动到某个位置')
+
+    def print_self(self):
+        print('i am monster')
 
 
-user1 = Player('tom', 100, 'master')
-user2 = Player('jerry', 90, 'master')
-user1.print_role()
-user2.print_role()
+class Animals(Monster):
+    def __init__(self, hp=10):
+        super().__init__(hp)
 
-user1.updateName('wilson')
-user1.print_role()
+    def print_self(self):
+        print('i am animal')
+        
+
+class Boss(Monster):
+    # boss 类怪物
+    def print_self(self):
+        print('i am boss')
+
+
+a1 = Monster(90)
+print(a1.hp)
+a1.run()
+
+a2 = Animals(50)
+print(a2.hp)
+a2.run()
+a2.print_self()
